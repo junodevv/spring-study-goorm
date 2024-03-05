@@ -11,5 +11,5 @@
    - **상속 관계** - 부모타입을 조회하면 자식까지 모두 조회가능
 5. 다양한 설정방식 -> xml을 이용한 AppConfig설정
 6. Bean메타정보(BeanDefinition)
-
+7. Singleton
 
