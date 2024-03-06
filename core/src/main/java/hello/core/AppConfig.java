@@ -23,10 +23,12 @@ public class AppConfig {
     // MemoryMemberRepository를 갖고 있는 MemberServiceImpl객체 반환
     @Bean // 스프링 컨테이너 라는 곳에 등록되는 아이들
     public MemberService memberService(){
+        System.out.println("Call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("Call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
@@ -34,6 +36,7 @@ public class AppConfig {
     // 멤버 리포지토리는 메모리멤버레포를 쓸것이다.(역할을 한눈에 볼 수 있도록 리팩토링한 코드)
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
