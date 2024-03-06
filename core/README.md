@@ -12,4 +12,4 @@
 5. 다양한 설정방식 -> xml을 이용한 AppConfig설정
 6. Bean메타정보(BeanDefinition)
 7. Singleton
-
+   - @Configuration이 싱글톤을 어떻게 지키나
