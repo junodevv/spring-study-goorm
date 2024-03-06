@@ -9,7 +9,7 @@ public class MemberServiceImpl implements MemberService{
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
     private final MemberRepository memberRepository;
-    @Autowired // ac.getBean(MemberRepository.class)
+    @Autowired // ac.getBean(MemberRepository.class), 스프링 Bean 컨테이너에서 알아서 파라미터에 주입해준다.
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

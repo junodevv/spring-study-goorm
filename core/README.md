@@ -14,3 +14,4 @@
 7. Singleton
    - @Configuration이 싱글톤을 어떻게 지키나
 8. @ComponentScan
+   - @Conponent, @Autowired
