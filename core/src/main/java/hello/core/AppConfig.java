@@ -30,6 +30,7 @@ public class AppConfig {
     public OrderService orderService(){
         System.out.println("Call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
+//        return null;
     }
 
     // 아래처럼 작성하면 정책이 바뀌어도 아래에서만 바꿔주면되고 역할과 구현 클래스를 한 눈에 볼 수 있게 된다.
