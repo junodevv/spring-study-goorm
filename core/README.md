@@ -13,3 +13,4 @@
 6. Bean메타정보(BeanDefinition)
 7. Singleton
    - @Configuration이 싱글톤을 어떻게 지키나
+8. @ComponentScan

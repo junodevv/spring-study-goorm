@@ -17,7 +17,7 @@ public class AppConfig {
 
     // @Bean memberService -> new MemoryMemberRepository()
     // @Bean orderService -> new MemoryMemberRepository()
-    // 이렇게되면 싱글톤패턴이 꺠지는 것 아닌가 ->
+    // 이렇게되면 싱글톤패턴이 꺠지는 것 아닌가 -> 그래서 스프링에서는 이걸 보장해주지
 
     // 생성자를 통해서 객체가 들어감 == 생성자 주입 == DI,Dependency Injection == 의존관계 주입
     // MemoryMemberRepository를 갖고 있는 MemberServiceImpl객체 반환
