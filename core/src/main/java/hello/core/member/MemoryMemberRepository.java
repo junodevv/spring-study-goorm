@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 // 원래는 인터페이스와 구현체의 패키지를 분리하지만 지금은 예제니까 너무 복잡해지지 않게 같은 패키지에..
-@Component
+@Component // 컨테이너속 default 이름: memoryMemberRepository
 public class MemoryMemberRepository implements MemberRepository{
     // 실무에서는 동시성을 위해 concurrentHashMap을 사용
     private static Map<Long, Member> store = new HashMap<>();
