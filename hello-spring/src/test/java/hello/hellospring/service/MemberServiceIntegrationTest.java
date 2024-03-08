@@ -22,11 +22,10 @@ class MemberServiceIntegrationTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
-    @Commit
     void 회원가입(){
         //given : 값 주기
         Member member = new Member();
-        member.setName("hello");
+        member.setName("hello3");
 
         //when : ~ 동작할떄
         Long saveId = memberService.join(member);
