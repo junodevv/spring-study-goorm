@@ -20,3 +20,4 @@
    - **Lombok!!**
    - 같은 타입의 빈이 2개 이상일 경우
      - Autowired 필드명 매칭, @Qualifier, @Primary
+     - 애노테이션 직접 만들어쓰기(커스텀)
