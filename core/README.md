@@ -13,5 +13,9 @@
 6. Bean메타정보(BeanDefinition)
 7. Singleton
    - @Configuration이 싱글톤을 어떻게 지키나
-8. @ComponentScan
-   - @Conponent, @Autowired
+8. 의존관계 자동 주입
+   - @ComponentScan, @Conponent, @Autowired
+   - **생성자 주입**, 수정자 주입, 필드 주입, 메서드 주입
+   - Null처리 -> 생성자 주입이 답이다!
+   - **Lombok!!**
+   - 
