@@ -23,3 +23,6 @@
      - 애노테이션 직접 만들어쓰기(커스텀)
    - 모든 빈 조회(List, Map)
    - 자동주입=업무 로직 수동주입=기술 지원 로직
+9. Bean 생명주기, 콜백
+   1. 인터페이스 InitializingBean, DisposableBean(옛날방식)
+   2. 
