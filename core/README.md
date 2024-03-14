@@ -27,3 +27,5 @@
    1. 인터페이스 InitializingBean, DisposableBean(옛날방식)
    2. Configuration에서 Bean생성, 종료 메서드 등록
    3. 애노테이션 @PostConstruct, @PreDestroy 사용(스프링 권장)
+10. Bean 스코프
+   - Singleton VS Prototype
