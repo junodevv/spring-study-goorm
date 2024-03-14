@@ -1,5 +1,7 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean; // 종료 콜백 빈
 import org.springframework.beans.factory.InitializingBean;// 초기화 콜백 빈
 
@@ -30,6 +32,7 @@ public class NetworkClient{
     }
 
     // Bean이 생기고 의존관계주입(초기화)이끝나면 호출되는 메서드
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.init");
         connect();
@@ -37,6 +40,7 @@ public class NetworkClient{
     }
 
      // 빈이 종료될때 호출
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
         disconnect();

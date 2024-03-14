@@ -26,4 +26,4 @@
 9. Bean 생명주기, 콜백
    1. 인터페이스 InitializingBean, DisposableBean(옛날방식)
    2. Configuration에서 Bean생성, 종료 메서드 등록
-   3. 
+   3. 애노테이션 @PostConstruct, @PreDestroy 사용(스프링 권장)
