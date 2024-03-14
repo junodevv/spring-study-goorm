@@ -3,7 +3,7 @@ package hello.core.lifecycle;
 import org.springframework.beans.factory.DisposableBean; // 종료 콜백 빈
 import org.springframework.beans.factory.InitializingBean;// 초기화 콜백 빈
 
-public class NetworkClient implements InitializingBean, DisposableBean {
+public class NetworkClient{
 
     private String url;
 
@@ -29,16 +29,16 @@ public class NetworkClient implements InitializingBean, DisposableBean {
         System.out.println("close: " + url);
     }
 
-    @Override // 의존관계주입(초기화)이끝나면 호출되는 메서드
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("NetworkClient.afterPropertiesSet");
+    // Bean이 생기고 의존관계주입(초기화)이끝나면 호출되는 메서드
+    public void init() throws Exception {
+        System.out.println("NetworkClient.init");
         connect();
         call("초기화 연결 메시지");
     }
 
-    @Override // 빈이 종료될때 호출
-    public void destroy() throws Exception {
-        System.out.println("NetworkClient.destroy");
+     // 빈이 종료될때 호출
+    public void close() throws Exception {
+        System.out.println("NetworkClient.close");
         disconnect();
     }
 }

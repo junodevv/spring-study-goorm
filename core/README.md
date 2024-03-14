@@ -25,4 +25,5 @@
    - 자동주입=업무 로직 수동주입=기술 지원 로직
 9. Bean 생명주기, 콜백
    1. 인터페이스 InitializingBean, DisposableBean(옛날방식)
-   2. 
+   2. Configuration에서 Bean생성, 종료 메서드 등록
+   3. 
