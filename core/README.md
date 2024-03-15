@@ -34,4 +34,4 @@
       2. JSR330 Provider를 쓴다
     - Request 스코프(웹 스코프)
       1. 스프링에 의해 DI가 일어날때, Http 요청이 없는데 request스코프의 빈 생성과 주입이 일어나 에러 발생
-         - 
+         - 해결방법 1: Provider 
