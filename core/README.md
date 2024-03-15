@@ -29,3 +29,6 @@
    3. 애노테이션 @PostConstruct, @PreDestroy 사용(스프링 권장)
 10. Bean 스코프
    - Singleton VS Prototype
+   - Singleton 안에서 Prototype을 사용할때 생기는 문제와 해결
+     1. @ObjectProvider, @ObjectFactory -> Lookup한다
+     2. 
