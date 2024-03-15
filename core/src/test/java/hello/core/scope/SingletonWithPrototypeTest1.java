@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import lombok.RequiredArgsConstructor;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -43,15 +44,13 @@ public class SingletonWithPrototypeTest1 {
     @Scope("singleton")
     @RequiredArgsConstructor
     static class ClientBean{
-//        private final PrototypeBean prototypeBean; // 생성시점에 주입, 프로토타입이지만 프로토타입처럼 쓰이지 못하게됨
-//        private final ApplicationContext applicationContext; // 안좋은 예시
-        private final ObjectProvider<PrototypeBean> prototypeBeanProvider;
+
+        private final Provider<PrototypeBean> prototypeBeanProvider;
 
         public int logic(){
-//            PrototypeBean prototypeBean = applicationContext.getBean(PrototypeBean.class);
             // 프로토타입의 빈이 필요할때마다 찾아서 생성해주는 것
             // ac도 가능하지만 ac는 스프링관리를 위한 것이고 ac에서 필요한 prototype빈을 생성하는 기능만빼온 것이 Provider임
-            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
+            PrototypeBean prototypeBean = prototypeBeanProvider.get();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
