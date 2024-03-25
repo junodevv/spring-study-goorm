@@ -2,3 +2,7 @@
 [1_스프링 입문 - 스프링부트, 웹MVC, DB접근기술(hello-spring)](https://github.com/junodevv/spring-study-goorm/tree/main/hello-spring)
 
 [2_스프링 핵심원리 기본편(core)](https://github.com/junodevv/spring-study-goorm/tree/main/core)
+
+# Goorm 실습 과제 
+
+[1_응답/에러(API)모델 만들기](https://github.com/junodevv/spring-study-goorm/tree/main/student)
