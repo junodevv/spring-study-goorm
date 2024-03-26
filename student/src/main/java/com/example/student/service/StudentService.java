@@ -12,8 +12,10 @@ public class StudentService {
 
     private final StudentRepository repository;
 
-    public void addStudent(String name, int grade){
-        repository.save(name, grade);
+    public Student addStudent(String name, int grade){
+        Student student = new Student(name, grade);
+        repository.save(student);
+        return student;
     }
 
     public List<Student> getAll (){
