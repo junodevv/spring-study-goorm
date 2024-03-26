@@ -10,8 +10,8 @@ public class StudentRepository {
 
     private List<Student> students = Student.defaultStudent();
 
-    public void save(String name, int grade){
-        students.add(new Student(name, grade));
+    public void save(Student student){
+        students.add(student);
     }
 
     public List<Student> findAll(){
