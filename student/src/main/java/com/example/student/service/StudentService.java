@@ -12,7 +12,7 @@ public class StudentService {
 
     private final StudentRepository repository;
 
-    public void save(String name, int grade){
+    public void addStudent(String name, int grade){
         repository.save(name, grade);
     }
 
