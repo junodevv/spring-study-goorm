@@ -13,12 +13,6 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student s) {
-        if(this.grade < s.grade){ // 메서드를 호출하는 객체가 비교대상보다 작은 경우 -1 반환 (오름차순)
-            return -1;
-        }
-        if(this.grade > s.grade){
-            return 1;
-        }
-        return 0;
+        return this.grade - s.getGrade(); // 메서드를 호출하는 객체가 비교대상보다 작은 경우 음수 반환 (오름차순)
     }
 }
