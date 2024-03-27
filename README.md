@@ -3,6 +3,8 @@
 
 [2_스프링 핵심원리 기본편 - `core`](https://github.com/junodevv/spring-study-goorm/tree/main/core)
 
+[4_스프링 MVC 2편 (예외처리) - `exception`](https://github.com/junodevv/spring-study-goorm/tree/main/exception)
+
 # Goorm 실습 과제 
 
 [1_응답/에러(API)모델 만들기 - `student`](https://github.com/junodevv/spring-study-goorm/tree/main/student)
