@@ -28,17 +28,12 @@ public class StudentController {
 
     @GetMapping("/student/all")
     public ApiResponse searchAllStudent(){
-
-        List<Student> results = service.getAll();
-
-        return makeResponse(results);
+        return makeResponse(service.getAll());
     }
 
     @GetMapping("/student/{grade}")
     public ApiResponse searchByGrade(@RequestParam("grade") int grade){
-        List<Student> results = service.getAllByGrade(grade);
-
-        return makeResponse(results);
+        return makeResponse(service.getAllByGrade(grade));
     }
 
     private <T> ApiResponse<T> makeResponse(List<T> results) {

@@ -20,7 +20,7 @@ class StudentRepositoryTest {
 
     @Test
     void save() {
-        repository.save("ha",2);
+        repository.save(new Student("ha",2));
 
         System.out.println("repository.findAll() = " + repository.findAll());
 
