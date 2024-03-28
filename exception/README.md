@@ -14,3 +14,7 @@
 1. 스프링 부트가 제공하는 에러페이지
    - `404.html`, `4xx.html`, `500.html`
    - `BasicErrorController`가 제공하는 기본정보들
+
+## API 예외 처리
+1. 클라이언트의 Accept와 controller의 produces를 이용한 에러응답
+2. 
