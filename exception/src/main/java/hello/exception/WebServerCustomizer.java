@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  *  그러면 에러 발생시 WAS에서는 오류페이지를 찾을떄 이것들도 참고하게 된다.
   */
 
-@Component
+//@Component
 public class WebServerCustomizer implements WebServerFactoryCustomizer<ConfigurableWebServerFactory> {
     @Override
     public void customize(ConfigurableWebServerFactory factory) {
