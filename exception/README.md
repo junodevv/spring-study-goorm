@@ -4,4 +4,5 @@
 1. 서블릿 예외 처리 방식 두가지
    1. 자바직접실행 exception
    2. response.sendError(http 상태코드, 메시지)
-2. 오류 화면 제공
+2. 오류 화면 제공(`WebServerCustomizer`)
+3. 오류페이지 작동 원리 - WAS에서 보낸 request에서 에러 속성들 꺼내봄
