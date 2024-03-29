@@ -18,4 +18,5 @@
 ## API 예외 처리
 1. 클라이언트의 Accept와 controller의 produces를 이용한 에러응답
 2. HandlerExceptionResolver 시작 - `IllegalArgumentException`를 잡아서 정상응답하기
-3. 
+3. HandlerExceptionResolver 활용 - 직접 ExceptionResolver를 작성
+4. 
