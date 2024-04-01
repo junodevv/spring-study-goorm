@@ -1,7 +1,10 @@
 package com.example.student.controller;
 
+import com.example.student.model.ErrorCode;
+import com.example.student.model.InputRestriction;
 import com.example.student.service.StudentService;
 import com.example.student.model.ApiResponse;
+import com.example.student.util.exception.CustomException;
 import java.util.Collections;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/student")
 @RequiredArgsConstructor
 public class StudentController {
+    static final int maxGrade = 6;
 
     private final StudentService service;
 
@@ -25,7 +29,7 @@ public class StudentController {
     public ApiResponse addStudent (@RequestParam String name, @RequestParam("grade") int grade){
         log.info("name: {}, grade: {}", name, grade);
         if(5 < grade){
-            throw new IllegalArgumentException("grade 는 6이상을 입력 할 수 없습니다.");
+            throw new CustomException(ErrorCode.BAD_REQUEST.getCode(),"grade 는 6이상을 입력 할 수 없습니다.", new InputRestriction(maxGrade));
         }
         return makeResponse(service.addStudent(name, grade));
     }
@@ -41,10 +45,11 @@ public class StudentController {
     }
 
     private <T> ApiResponse<T> makeResponse(List<T> results) {
-        return new ApiResponse<>(results);
+
+        return new ApiResponse(results);
     }
 
     private <T> ApiResponse<T> makeResponse(T result) {
-        return new ApiResponse<>(Collections.singletonList(result)); // 하나짜리 리스트를 만드는 방법
+        return new ApiResponse(Collections.singletonList(result)); // 하나짜리 리스트를 만드는 방법
     }
 }

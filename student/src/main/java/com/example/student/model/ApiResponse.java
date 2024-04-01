@@ -26,15 +26,6 @@ public class ApiResponse<T> {
         this.data = data;
     }
 
-    public ApiResponse<T> makeResponse(T result){
-        return null;
-    }
-
-    public ApiResponse<T> makeResponse(List<T> results){
-
-        return null;
-    }
-
     @Getter
     @AllArgsConstructor
     private static class Status{
