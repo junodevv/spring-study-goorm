@@ -1,5 +1,7 @@
 package com.example.student.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +11,11 @@ import lombok.Getter;
 public class ApiResponse<T> {
 
     private Status status;
+    @JsonInclude(Include.NON_EMPTY)
     private Metadata metadata;
+    @JsonInclude(Include.NON_EMPTY)
     private List<T> results;
+    @JsonInclude(Include.NON_EMPTY)
     private Object data;
 
     // 정상 응답 생성자

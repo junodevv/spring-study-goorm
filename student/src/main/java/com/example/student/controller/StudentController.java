@@ -29,7 +29,7 @@ public class StudentController {
     public ApiResponse addStudent (@RequestParam String name, @RequestParam("grade") int grade){
         log.info("name: {}, grade: {}", name, grade);
         if(5 < grade){
-            throw new CustomException(ErrorCode.BAD_REQUEST.getCode(),"grade 는 6이상을 입력 할 수 없습니다.", new InputRestriction(maxGrade));
+            throw new CustomException(ErrorCode.BAD_REQUEST,"grade 는 6이상을 입력 할 수 없습니다.", new InputRestriction(maxGrade));
         }
         return makeResponse(service.addStudent(name, grade));
     }

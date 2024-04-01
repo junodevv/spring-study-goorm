@@ -17,6 +17,6 @@ public class StudentExHandler {
     @ExceptionHandler(CustomException.class)
     public ApiResponse customExceptionHandler(CustomException e){
         log.error("[customException] e",e);
-        return new ApiResponse(e.getCode(), e.getMessage(), e.getData());
+        return new ApiResponse(e.getErrorCode().getCode(), e.getMessage(), e.getData());
     }
 }
