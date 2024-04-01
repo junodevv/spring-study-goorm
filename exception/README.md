@@ -21,4 +21,7 @@
 3. HandlerExceptionResolver 활용 - 직접 ExceptionResolver를 작성
 4. 스프링이 제공하는 ExceptionResolver1 - ResponseStatusExceptionResolver(http응답코드변경) => 어노테이션(`@ResponseStatus`), 인스턴스`ResponseStatusException`
 5. 스프링이 제공하는 ExceptionResolver2 - DefaultHandlerExceptionResolver(스프링 내부 예외 처리)
-6. `@exceptionHandler`
+6. `@ExceptionHandler` - 정상코드, 예외코드가 한곳에
+7. `@ControllerAdvice`, `@RestControllerAdvice`
+   - 정상코드, 예외코드를 분리
+   - 적용 범위를 지정할 수 있음(어노테이션, 패키지, 클래스)
