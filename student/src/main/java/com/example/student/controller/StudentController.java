@@ -1,6 +1,5 @@
 package com.example.student.controller;
 
-import com.example.student.model.Student;
 import com.example.student.service.StudentService;
 import com.example.student.model.ApiResponse;
 import java.util.Collections;
@@ -8,31 +7,36 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
+@RequestMapping("/student")
 @RequiredArgsConstructor
 public class StudentController {
 
     private final StudentService service;
 
-    @PostMapping("/student")
+    @PostMapping
     public ApiResponse addStudent (@RequestParam String name, @RequestParam("grade") int grade){
         log.info("name: {}, grade: {}", name, grade);
-
+        if(5 < grade){
+            throw new IllegalArgumentException("grade 는 6이상을 입력 할 수 없습니다.");
+        }
         return makeResponse(service.addStudent(name, grade));
     }
 
-    @GetMapping("/student/all")
+    @GetMapping("/all")
     public ApiResponse searchAllStudent(){
         return makeResponse(service.getAll());
     }
 
-    @GetMapping("/student/{grade}")
-    public ApiResponse searchByGrade(@RequestParam("grade") int grade){
+    @GetMapping("/{grade}")
+    public ApiResponse searchByGrade(@PathVariable("grade") int grade){
         return makeResponse(service.getAllByGrade(grade));
     }
 
