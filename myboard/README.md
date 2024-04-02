@@ -28,6 +28,8 @@
    - [ ] 해당 게시글에 등록된 댓글 리스트도 응답에 포함되어야한다.
      - [ ] 댓글 중 삭제된 댓글은 포함하지 않는다.
      - [x] 댓글리스트 페이징은 무시
-   
+
+## BD ERD 작성
+<img src="https://github.com/junodevv/spring-study-goorm/assets/126752196/e1fe1c55-46a8-4070-9db2-61861c5d7dc0">
 
 
