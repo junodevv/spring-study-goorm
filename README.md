@@ -8,3 +8,5 @@
 # Goorm 실습 과제 
 
 [1_응답/에러(API)모델 만들기 - `student`](https://github.com/junodevv/spring-study-goorm/tree/main/student)
+
+[2_게시판(API) 만들기 - `myboard`](https://github.com/junodevv/spring-study-goorm/tree/main/myboard)
