@@ -3,6 +3,7 @@ package com.example.myboard.service;
 import com.example.myboard.model.DeleteStatus;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
+import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,5 +25,9 @@ public class BoardService {
     public Optional<Board> deleteBoard(Long BoardNo){
         repository.updateStatusByBoardNo(BoardNo, DeleteStatus.DELETE);
         return repository.findById(BoardNo);
+    }
+
+    public List<Board> findAllBoard(){
+        return repository.findAll();
     }
 }
