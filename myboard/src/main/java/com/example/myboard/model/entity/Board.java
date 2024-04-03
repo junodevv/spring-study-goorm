@@ -13,13 +13,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "Board")
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
-@NoArgsConstructor
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +29,17 @@ public class Board {
     private Long boardNo;
     @Column
     private String title;
-    @Column
+    @Column(length = 1000)
     private String content;
-    @Enumerated(EnumType.STRING) // Enum 에 정의한 이름의 문자열 자체가 사용된다.
+    @Enumerated(EnumType.STRING)// Enum 에 정의한 이름의 문자열 자체가 사용된다.
+    @ColumnDefault("'ACTIVE'")
     private DeleteStatus deleteStatus;
+
+    /**
+     * 스프링이 생성자로 사용하는거 1순위가 파라메터가 없는 기본생성자인데 그 기본생성자에 기본값을 정해놓을 수 있다.
+     * 이제 이 기본생성자로 객체를 생성하고 거기에 setter를 이용해서 클라이언트에서 받아온 파라메터들을 세팅한다.
+     */
+    public Board() {
+        this.deleteStatus = DeleteStatus.ACTIVE;
+    }
 }
