@@ -30,7 +30,7 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "board_no", referencedColumnName = "board_no")
     private Board board;
-    @Column
+    @Column(length = 500)
     private String content;
     @Enumerated(EnumType.STRING)
     private DeleteStatus deleteStatus;
