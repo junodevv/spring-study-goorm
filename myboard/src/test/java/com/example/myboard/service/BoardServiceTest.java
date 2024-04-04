@@ -69,8 +69,10 @@ class BoardServiceTest {
         board2.setTitle("Test title22");
         board2.setContent("Test Content22");
         service.saveBoard(board2);
+        int pageNum = 0;
+        int pageSize = 0;
         
-        List<BoardDto> resultList = service.findAllBoard();
+        List<BoardDto> resultList = service.findAllBoard(pageNum, pageSize);
         System.out.println("resultList.toString() = " + resultList.toString());
         assertThat(resultList.size()).isEqualTo(2);
     }

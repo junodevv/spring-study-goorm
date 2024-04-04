@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,10 +33,13 @@ public class BoardService {
         return repository.findById(BoardNo);
     }
 
-    public List<BoardDto> findAllBoard(){
-        return repository.findAll().stream()
+    public List<BoardDto> findAllBoard(int pageNum, int pageSize){
+        Sort sort = Sort.by(Direction.DESC, "boardNo");
+        Pageable pageable = PageRequest.of(pageNum, pageSize, sort);
+
+        return repository.findAll(pageable).stream()
                 .map(BoardDto::ToBoardDtoWithoutContent)
-                .sorted(Comparator.reverseOrder())
+//                .sorted(Comparator.reverseOrder())
                 .toList();
     }
 }
