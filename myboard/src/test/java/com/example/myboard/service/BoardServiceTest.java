@@ -1,10 +1,13 @@
 package com.example.myboard.service;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.myboard.model.DeleteStatus;
+import com.example.myboard.model.dto.BoardDto;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
+import java.util.List;
 import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -33,7 +36,7 @@ class BoardServiceTest {
 
         System.out.println("board1.toString() = " + board1.toString());
 
-        Assertions.assertThat(board1).isEqualTo(board);
+        assertThat(board1).isEqualTo(board);
     }
 
     @Test
@@ -53,5 +56,22 @@ class BoardServiceTest {
     @Commit
     private Optional<Board> softDelete(Long boardNo){
         return service.deleteBoard(boardNo);
+    }
+
+    @Test
+    @DisplayName("게시글 조회 테스트")
+    void 게시글_조회_테스트(){
+        Board board1 = new Board();
+        board1.setTitle("Test title1");
+        board1.setContent("Test Content1");
+        service.saveBoard(board1);
+        Board board2 = new Board();
+        board2.setTitle("Test title22");
+        board2.setContent("Test Content22");
+        service.saveBoard(board2);
+        
+        List<BoardDto> resultList = service.findAllBoard();
+        System.out.println("resultList.toString() = " + resultList.toString());
+        assertThat(resultList.size()).isEqualTo(2);
     }
 }

@@ -1,8 +1,10 @@
 package com.example.myboard.service;
 
 import com.example.myboard.model.DeleteStatus;
+import com.example.myboard.model.dto.BoardDto;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +29,10 @@ public class BoardService {
         return repository.findById(BoardNo);
     }
 
-    public List<Board> findAllBoard(){
-        return repository.findAll();
+    public List<BoardDto> findAllBoard(){
+        return repository.findAll().stream()
+                .map(BoardDto::ToBoardDtoWithoutContent)
+                .sorted(Comparator.reverseOrder())
+                .toList();
     }
 }

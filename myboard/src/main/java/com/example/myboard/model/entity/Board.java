@@ -42,4 +42,6 @@ public class Board {
     public Board() {
         this.deleteStatus = DeleteStatus.ACTIVE;
     }
+
+
 }
