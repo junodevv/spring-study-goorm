@@ -4,6 +4,7 @@ import com.example.myboard.model.DeleteStatus;
 import com.example.myboard.model.dto.BoardDto;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
+import com.example.myboard.util.EntityDtoMapper;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -22,24 +23,25 @@ import org.springframework.transaction.annotation.Transactional;
 public class BoardService {
 
     private final BoardRepository repository;
-
+    // 게시글 등록
     public Board saveBoard(Board board){
         return repository.save(board);
     }
-
+    // 게시글 삭제(soft)
     @Transactional
     public Optional<Board> deleteBoard(Long BoardNo){
         repository.updateStatusByBoardNo(BoardNo, DeleteStatus.DELETE);
         return repository.findById(BoardNo);
     }
-
+    // 게시글 목록 조회
     public List<BoardDto> findAllBoard(int pageNum, int pageSize){
         Sort sort = Sort.by(Direction.DESC, "boardNo");
         Pageable pageable = PageRequest.of(pageNum, pageSize, sort);
 
         return repository.findAll(pageable).stream()
-                .map(BoardDto::ToBoardDtoWithoutContent)
-//                .sorted(Comparator.reverseOrder())
+                .map(EntityDtoMapper::mapBoardToDto)
                 .toList();
     }
+    // 게시글 수정
+
 }

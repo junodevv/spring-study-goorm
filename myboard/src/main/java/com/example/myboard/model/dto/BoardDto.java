@@ -21,15 +21,6 @@ public class BoardDto implements Comparable<BoardDto> {
     private String content;
     private DeleteStatus deleteStatus;
 
-    // 본문 미 포함된 응답
-    public static BoardDto ToBoardDtoWithoutContent(Board board){
-        return BoardDto.builder()
-                .boardNo(board.getBoardNo())
-                .title(board.getTitle())
-                .deleteStatus(board.getDeleteStatus())
-                .build();
-    }
-
     @Override
     public int compareTo(BoardDto o) {
         return (int)(this.boardNo - o.boardNo);
