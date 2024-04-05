@@ -33,4 +33,8 @@
 ## BD ERD 작성
 <img src="https://github.com/junodevv/spring-study-goorm/assets/126752196/e1fe1c55-46a8-4070-9db2-61861c5d7dc0">
 
-
+## 배운것들
+1. soft delete
+2. pagination -> Pageable(interface)-PageRequest(class)
+3. EntityDtoMapper
+4. JPA Update ->  @Modifying, @Transaction
