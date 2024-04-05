@@ -1,10 +1,8 @@
 package com.example.myboard.model.dto;
 
 import com.example.myboard.model.DeleteStatus;
-import com.example.myboard.model.entity.Board;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import java.util.Comparator;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

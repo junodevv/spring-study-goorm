@@ -12,5 +12,14 @@ public class EntityDtoMapper {
                 .deleteStatus(board.getDeleteStatus())
                 .build();
     }
+    // 본문 포함 응답
+    public static BoardDto mapBoardToDto(Board board){
+        return BoardDto.builder()
+                .boardNo(board.getBoardNo())
+                .title(board.getTitle())
+                .content(board.getContent())
+                .deleteStatus(board.getDeleteStatus())
+                .build();
+    }
 
 }

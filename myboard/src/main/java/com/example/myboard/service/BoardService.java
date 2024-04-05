@@ -24,14 +24,14 @@ public class BoardService {
 
     private final BoardRepository repository;
     // 게시글 등록
-    public Board saveBoard(Board board){
-        return repository.save(board);
+    public BoardDto saveBoard(Board board){
+        return EntityDtoMapper.mapBoardToDto(repository.save(board));
     }
     // 게시글 삭제(soft)
     @Transactional
-    public Optional<Board> deleteBoard(Long BoardNo){
+    public BoardDto deleteBoard(Long BoardNo){
         repository.updateStatusByBoardNo(BoardNo, DeleteStatus.DELETE);
-        return repository.findById(BoardNo);
+        return EntityDtoMapper.mapBoardToDto(repository.findById(BoardNo).get());
     }
     // 게시글 목록 조회
     public List<BoardDto> findAllBoard(int pageNum, int pageSize){
@@ -39,7 +39,7 @@ public class BoardService {
         Pageable pageable = PageRequest.of(pageNum, pageSize, sort);
 
         return repository.findAll(pageable).stream()
-                .map(EntityDtoMapper::mapBoardToDto)
+                .map(EntityDtoMapper::mapBoardToDtoNoContent)
                 .toList();
     }
     // 게시글 수정

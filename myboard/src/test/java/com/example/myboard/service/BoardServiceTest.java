@@ -7,6 +7,7 @@ import com.example.myboard.model.DeleteStatus;
 import com.example.myboard.model.dto.BoardDto;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
+import com.example.myboard.util.EntityDtoMapper;
 import java.util.List;
 import java.util.Optional;
 import org.assertj.core.api.Assertions;
@@ -32,11 +33,11 @@ class BoardServiceTest {
         board.setTitle("Test title");
         board.setContent("Test Content");
 
-        Board board1 = service.saveBoard(board);
+        BoardDto boardDto = service.saveBoard(board);
 
-        System.out.println("board1.toString() = " + board1.toString());
+        System.out.println("board1.toString() = " + boardDto.toString());
 
-        assertThat(board1).isEqualTo(board);
+        assertThat(boardDto.getBoardNo()).isEqualTo(EntityDtoMapper.mapBoardToDto(board).getBoardNo());
     }
 
     @Test
@@ -46,15 +47,15 @@ class BoardServiceTest {
         board.setTitle("Test title");
         board.setContent("Test Content");
 
-        Board board1 = service.saveBoard(board);
+        BoardDto board1 = service.saveBoard(board);
         System.out.println("board1.toString() = " + board1.toString());
-        Optional deleteBoard = softDelete(board1.getBoardNo());
-        System.out.println("deleteBoard.get() = " + deleteBoard.get());
+        BoardDto deleteBoard = softDelete(board1.getBoardNo());
+        System.out.println("deleteBoard.get() = " + deleteBoard);
 
 //        Assertions.assertThat(deleteBoard.get().getDeleteStatus()).isEqualTo(DeleteStatus.DELETE);
     }
     @Commit
-    private Optional<Board> softDelete(Long boardNo){
+    private BoardDto softDelete(Long boardNo){
         return service.deleteBoard(boardNo);
     }
 
@@ -70,7 +71,7 @@ class BoardServiceTest {
         board2.setContent("Test Content22");
         service.saveBoard(board2);
         int pageNum = 0;
-        int pageSize = 0;
+        int pageSize = 5;
         
         List<BoardDto> resultList = service.findAllBoard(pageNum, pageSize);
         System.out.println("resultList.toString() = " + resultList.toString());
