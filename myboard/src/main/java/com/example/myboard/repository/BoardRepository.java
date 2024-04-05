@@ -10,4 +10,10 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     @Modifying
     @Query("update Board b SET b.deleteStatus = :deleteStatus WHERE b.boardNo= :boardNo")
     void updateStatusByBoardNo(Long boardNo, DeleteStatus deleteStatus);
+
+    @Modifying
+    @Query("update Board b SET b.title = :title, b.content = :content WHERE b.boardNo= :boardNo")
+    void updateBoardByBoardNo(Long boardNo, String title, String content);
+
+
 }

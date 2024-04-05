@@ -8,8 +8,8 @@
      - [x] 게시글의 삭제방법은 sofe delete로 진행
      - [ ] 게시글 삭제시 댓글로 삭제되어야 한다.
 3. 게시글 수정
-   - [ ] 단건의 게시글을 수정 할 수 있어야 한다.
-     - [ ] 삭제된 게시글은 수정 할 수 없어야 한다.
+   - [x] 단건의 게시글을 수정 할 수 있어야 한다.
+     - [x] 삭제된 게시글은 수정 할 수 없어야 한다.
 4. 게시글 목록 조회
    - [x] 등록된 게시글의 목록을 조회한다.
      - [x] 응답에는 본문이 포함되지 않는다.
@@ -38,3 +38,4 @@
 2. pagination -> Pageable(interface)-PageRequest(class)
 3. EntityDtoMapper
 4. JPA Update ->  @Modifying, @Transaction
+5. @ModelAttribute

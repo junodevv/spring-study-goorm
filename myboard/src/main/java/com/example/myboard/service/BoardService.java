@@ -5,9 +5,7 @@ import com.example.myboard.model.dto.BoardDto;
 import com.example.myboard.model.entity.Board;
 import com.example.myboard.repository.BoardRepository;
 import com.example.myboard.util.EntityDtoMapper;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -43,5 +41,13 @@ public class BoardService {
                 .toList();
     }
     // 게시글 수정
-
+    @Transactional
+    public BoardDto updateBoard(Board board){
+        if(repository.findById(board.getBoardNo()).get().getDeleteStatus() == DeleteStatus.DELETE){
+            throw new IllegalArgumentException("이미 삭제된 게시물입니다.");
+        }
+        repository.updateBoardByBoardNo(board.getBoardNo(), board.getTitle(), board.getContent());
+        Board updateResult = repository.findById(board.getBoardNo()).get();
+        return EntityDtoMapper.mapBoardToDto(updateResult);
+    }
 }
