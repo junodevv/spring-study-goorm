@@ -12,16 +12,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 @Table(name = "Comment")
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
-@NoArgsConstructor
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +35,11 @@ public class Comment {
     @Column(length = 500)
     private String content;
     @Enumerated(EnumType.STRING)
+    @ColumnDefault("'ACTIVE'")
     private DeleteStatus deleteStatus;
+
+    public Comment() {
+        this.deleteStatus = DeleteStatus.ACTIVE;
+    }
 
 }
