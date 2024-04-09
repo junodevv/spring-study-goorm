@@ -40,7 +40,7 @@ public class Board {
     @Enumerated(EnumType.STRING)// Enum 에 정의한 이름의 문자열 자체가 사용된다.
     @ColumnDefault("'ACTIVE'")
     private DeleteStatus deleteStatus;
-    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL) // <- 영속성전이, 주인 아닌 Entity
     private List<Comment> comments = new ArrayList<>();
 
     /**

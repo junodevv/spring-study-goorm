@@ -29,7 +29,7 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_no", nullable = false, unique = true)
     private Long commentNo;
-    @ManyToOne
+    @ManyToOne // <- 주인 Entity
     @JoinColumn(name = "board_no", referencedColumnName = "board_no")
     private Board board;
     @Column(length = 500)
